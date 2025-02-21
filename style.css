@@ -57,7 +57,7 @@ body {
 }
 
 header {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./imagens/home.jpeg') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('./imagens/home.jpeg') center/cover no-repeat;
     color: white;
     text-align: center;
     padding: 350px 20px; /* Aumente o valor conforme necessário */    
@@ -99,25 +99,61 @@ header p {
     box-shadow: 0 6px 12px rgba(109, 72, 48, 0.4);
 }
 
-section {
+/* Seção principal */
+section.sobre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 80px 20px;
-    text-align: center;
-    max-width: 1100px;
-    margin: auto;
     background: #dad4cf;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     transition: 0.3s ease;
+    max-width: 1100px;
+    margin: auto;
 }
 
-section:hover {
+/* Quando a tela for menor que 768px, a direção do flex será alterada para coluna */
+@media (max-width: 768px) {
+    section.sobre {
+        flex-direction: column; /* Alinha o texto e a imagem verticalmente */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .sobre-imagem img {
+        width: 100%; /* A imagem ocupa toda a largura disponível */
+        margin-top: 20px; /* Adiciona espaço entre o texto e a imagem */
+    }
+}
+
+.sobre-conteudo {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
+}
+
+.sobre-imagem {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.sobre-imagem img {
+    width: 70%; /* Tamanho padrão para telas grandes */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Estilo para o hover */
+section.sobre:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 section h2 {
     font-size: 2rem;
-    color:#222222;
+    color: #222222;
     margin-bottom: 15px;
 }
 
@@ -126,6 +162,7 @@ section p {
     line-height: 1.6;
     color: #222222;
 }
+
 
 section.sobre {
     display: flex;
@@ -235,12 +272,37 @@ section.sobre:hover {
     padding: 10px;
 }
 
-.carousel-control-prev:hover, .carousel-control-next:hover {
-    background-color: #444444;
-}
-
 .carousel-control-prev, .carousel-control-next {
     z-index: 1;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 20px; /* Define a posição no lado direito */
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Torna o botão redondo */
+    background-color: #25d366; /* Cor verde oficial do WhatsApp */
+    color: white; /* Cor do ícone */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 28px; /* Tamanho do ícone */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Ampliação no hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+    background-color: #20c659; /* Cor verde mais escura no hover */
+}
+
+.whatsapp-button i {
+    color: white; /* Ícone branco */
 }
 
 
